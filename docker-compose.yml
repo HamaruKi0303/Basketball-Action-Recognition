@@ -1,0 +1,24 @@
+version: "2"
+services:
+  basket-gpu-action:
+    build: .
+    # image: basket-gpu-action:v1
+    volumes:
+      # host側のmount元 path : docker側のmount先path
+      - .:/home
+    working_dir: /home
+    ports:
+      - 8585:8585
+    #command: jupyter-lab --ip 0.0.0.0 --allow-root --NotebookApp.token='' --port=8888 --notebook-dir=/home -b localhost
+    command: jupyter-lab --ip=0.0.0.0 --allow-root --port=8585 --no-browser --NotebookApp.token=''
+    # command: jupyter-lab
+
+    tty : true
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
