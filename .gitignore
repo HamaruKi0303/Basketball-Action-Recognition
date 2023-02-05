@@ -1,0 +1,10 @@
+datasets.zip
+datasets/**/*
+dataset/**/*
+dataset/**/0004553.mp4
+model_checkpoints/**.pt
+model_checkpoints/r2plus1d_augmented-2/*.pt
+model_checkpoints/**/*.pth*
+model_checkpoints/r2plus1d_18-91a641e6.pth.1
+histories/*
+histories/history_r2plus1d_augmented-2.txt
